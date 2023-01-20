@@ -1,0 +1,42 @@
+{% extends 'main/base.html' %} {% block content %}
+<div class="thread-list">
+  <h2 class="page-header">Threads</h2>
+  <form class="sort" action="{% url 'main:home' %}" method="post">
+    {%csrf_token%}
+        <p>Sort by:</p>
+    <select name="sort" class="sort__select">
+    <option value="date" {% if sort == 'date' %} selected {% endif %}>Date</option>
+      <option value="votes" {% if sort == 'votes' %} selected {% endif %}>Votes</option>
+      <option value="comments" {% if sort == 'comments' %} selected {% endif %}>Comments</option>
+    </select>
+    <p>Order</p>
+    <select name="order" class="sort__select">
+      <option value="asc" {% if order == 'asc' %} selected {% endif %}>Ascending</option>
+      <option value="desc" {% if order == 'desc' %} selected {% endif %}>Descending</option>
+    </select>
+    <button class="form__button" type="submit">Sort threads</button>
+</form>
+  {% if user.is_authenticated %}
+  <span class="new-thread">
+    <a href="{% url 'main:post_thread' %}">Post a new thread</a>
+  </span>
+    {% endif %}
+    <ul class="thread-list">
+      {% for thread in thread_list %}
+      <li class="thread-list-item">
+        <h2 class="thread-list-item__title">
+          <a href="{% url 'main:thread_view' thread.id %}">{{thread.title}}</a>
+        </h2>
+        <span class="thread-list-item__info">
+        <p class="thread-list-item__author">by {{thread.author}} in {{thread.topic}}</p>
+
+        <p class="thread-list-item__votes">Votes: {{thread.votes}}</p>
+        <p class="thread-list-item__comments">Comments: {{thread.comment_count}}</p>
+        <p class="thread-list-item__date_pub">Posted on {{thread.date_pub}}</p>
+        </span>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endblock %}
+</div>

@@ -1,0 +1,8 @@
+{% extends 'main/base.html' %} {% block content %}
+<h2 class="page-header">Post Thread</h2>
+<form class="form" action="{% url 'main:post_thread' %}" method="post">
+  {% csrf_token %} {{form.as_p}}
+  <button class="form__button" type="submit">Submit</button>
+</form>
+
+{%endblock%}

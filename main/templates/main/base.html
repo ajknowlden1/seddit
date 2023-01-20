@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  {% load static %}
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'main/style/style.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+
+  <header>
+    <a href="{% url 'main:home' %}" class="title">Seddit</a>
+    <div class="user-info">
+      {% if user.is_authenticated %}
+
+      <p class="user-message">Logged in as {{user.username}}</p>
+      <a href="{% url 'logout' %}" class="user-link">Log out</a>
+      {% else %}
+      <p class="user-message">You are not logged in.</p>
+      <a href="{% url 'login' %}" class="user-link">Log in</a>
+      <a href="{% url 'main:sign_up' %}" class="user-link"> Sign Up</a>
+      {% endif %}
+    </div>
+  </header>
+  <section className="content">{% block content %} {% endblock %}</section>
+</html>

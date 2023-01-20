@@ -1,0 +1,40 @@
+* {
+  font-family: "Lato", sans-serif;
+  color: white;
+}
+
+header {
+  margin-left: 1rem;
+}
+
+.base-wrapper {
+  background-color: #031833;
+}
+
+.thread-list {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+.thread-list li {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  width: 75vw;
+  align-content: center;
+  background-color: #133d1e;
+  padding: 1rem;
+}
+.thread-list li:nth-child(2n) {
+  background-color: #216b35;
+}
+.thread-list li a {
+  margin-right: 1rem;
+  align-self: center;
+}
+.thread-list li p {
+  margin-right: 1rem;
+  align-self: center;
+}
+
+/*# sourceMappingURL=output.css.map */

@@ -1,0 +1,11 @@
+{%extends 'main/base.html'%} {% block content %}
+<form action="{% url 'main:delete_thread' thread.id %}" method="post">
+  {%csrf_token%}
+  <h2 class="page-header">Are you sure you want to delete {{thread.title}}?</h2>
+  <button class="form__button" type="submit" name="delete">
+    Yes, delete this thread
+  </button>
+</form>
+<a class="nav__link" href="/{{thread.id}}/">No, take me back to the thread</a>
+
+{% endblock%}

@@ -1,0 +1,58 @@
+{% extends 'main/base.html'%} {% block content %}
+<section class="thread">
+  <h1 class="thread__header">{{thread.title}}</h1>
+
+  <div class="thread__details">
+    <p class="thread__author">{{thread.author}}</p>
+    <p class="thread__date-published">{{thread.date_pub}}</p>
+    <p class="thread__votes">{{thread.votes}} votes</p>
+    <form class="form__vote" method="post" action="/{{thread.id}}/vote/">
+      {%csrf_token%}
+      <button
+        type="submit"
+        class="form__button-upvote"
+        name="inc_vote"
+        value="1"
+      >
+        Vote +1
+      </button>
+      <button
+        type="submit"
+        class="form__button-downvote"
+        name="inc_vote"
+        value="-1"
+      >
+        Vote -1
+      </button>
+    </form>
+
+    {% if user.id == thread.author_i %}
+    <a class="nav__link" href="{% url 'main:delete_thread' thread.id %}"
+      >Delete this thread</a
+    >
+    {% endif%}
+  </div>
+
+  <p class="thread__content">{{thread.content}}</p>
+
+  <h2 class="thread__comments-title">Comments</h2>
+  <ul class="thread__comments">
+    {% if has_comments %} {% for comment in top_comments %}
+    <li class="thread__comment">
+      <p class="thread__comment-author">{{comment.comment_author}}</p>
+      <p class="thread__comment-body">{{comment.content}}</p>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+
+  <p class="thread__comments-message">No comments yet</p>
+  {%endif%} {% if user.is_authenticated %}
+  <a class="nav__link" href="{% url 'main:add_comment' thread.id %}"
+    >Add a comment</a
+  >
+  {% endif %}
+
+  <a href="{% url 'main:home' %}">Back to Home</a>
+</section>
+{% endblock%}

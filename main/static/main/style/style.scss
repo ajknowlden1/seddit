@@ -1,0 +1,343 @@
+$black-shadows: #b4a6abff;
+$green-sheen: #72bda3ff;
+$russian-green: #5e8c61ff;
+$eerie-black: #252627ff;
+$charcoal: #424b54ff;
+
+* {
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+  color: whitesmoke;
+  padding: 0.5rem;
+  margin: 0;
+}
+
+body {
+  position: fixed;
+  display: block;
+  background-color: $eerie-black;
+
+  left: 0;
+  right: 0;
+}
+
+header {
+  box-sizing: content-box;
+  border-bottom: solid 2px $charcoal;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  left: 0;
+  right: 0;
+  height: fit-content;
+  padding: 1rem;
+  .title {
+    margin-left: 1rem;
+    width: fit-content;
+    font-size: 2.5rem;
+    text-decoration: none;
+  }
+
+  .user-info {
+    display: flex;
+    flex-direction: row;
+    justify-self: end;
+    align-items: center;
+    float: right;
+  }
+  .user-message {
+    height: fit-content;
+    font-size: 1.25rem;
+  }
+
+  .user-link {
+    font-size: 1.25rem;
+  }
+}
+
+.sort {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.sort__select {
+  color: $eerie-black;
+  margin-right: 0.5rem;
+  padding: 0.5rem;
+  height: fit-content;
+
+  option {
+    color: $eerie-black;
+  }
+}
+
+.thread-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.new-thread a {
+  font-size: 2rem;
+}
+
+.thread-list-item {
+  background-color: $charcoal;
+  list-style-type: none;
+  margin-bottom: 0.5rem;
+  box-shadow: $eerie-black;
+}
+
+.thread-list-item__title {
+  margin: 0;
+  padding: 0;
+}
+
+.thread-list-item__info {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.thread__header,
+.page-header {
+  text-align: start;
+  font-size: 3rem;
+}
+
+#login-page__header {
+  text-align: center;
+}
+
+.thread__details {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+
+  font-size: 1.25rem;
+  background-color: $eerie-black;
+
+  .form__vote .form__button {
+    margin: 0;
+    padding: 0.25rem;
+  }
+}
+
+.thread__content {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.thread__comments {
+  display: flex;
+  flex-direction: column;
+}
+
+.thread__comments-title {
+  font-size: 1.5rem;
+}
+
+.thread__comment {
+  display: inline-block;
+  padding: 0.25rem;
+  list-style-type: none;
+  background-color: $charcoal;
+  margin-bottom: 0.5rem;
+}
+.thread__comment-author {
+  background-color: $eerie-black;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+}
+
+.form p {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  label {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 1rem;
+    font-size: 1.25rem;
+  }
+  input,
+  textarea {
+    font-size: 1.25rem;
+    color: $eerie-black;
+  }
+  select,
+  select option {
+    font-size: 1.25rem;
+    color: $eerie-black;
+  }
+}
+
+.form__button {
+  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  width: fit-content;
+  background-color: $russian-green;
+  padding: 0.5rem;
+  color: whitesmoke;
+  font-size: 1rem;
+}
+
+.form__button-upvote {
+  background-color: $russian-green;
+  padding: 0.5rem;
+  color: whitesmoke;
+  font-size: 1rem;
+}
+
+.form__button-downvote {
+  background-color: rgb(162, 19, 47);
+  padding: 0.5rem;
+  color: whitesmoke;
+  font-size: 1rem;
+}
+
+.thread {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+.thread-body {
+  display: block;
+  margin: 0.5rem;
+  padding: 0;
+  p {
+    margin: 0;
+  }
+}
+
+.thread-comments-wrapper {
+  width: 100%;
+  h2 {
+    margin: 0;
+  }
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+
+  li {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    align-content: center;
+    background-color: rgb(36, 36, 36);
+  }
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  form {
+    margin: 0;
+    color: black;
+  }
+
+  form input {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    color: black;
+  }
+
+  form button {
+    color: black;
+    display: block;
+    margin: 0 auto;
+    font-size: 1rem;
+    border-radius: 10%;
+    padding-top: 0.5rem;
+  }
+}
+
+.post-thread form {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+
+  input {
+    height: fit-content;
+    color: black;
+  }
+
+  select {
+    color: black;
+
+    option {
+      color: black;
+    }
+  }
+  button {
+    margin: 0.5rem;
+    color: black;
+    width: fit-content;
+  }
+
+  #id_thread_content {
+    display: flex;
+    flex-direction: column;
+
+    color: black;
+  }
+}
+
+.signup-wrapper form {
+  input {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+    width: 20rem;
+    height: fit-content;
+    color: black;
+  }
+  button {
+    color: black;
+    margin-left: 18px;
+  }
+}
+
+.add-comment-wrapper form {
+  input {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+    width: 20rem;
+    height: fit-content;
+    color: black;
+  }
+  button {
+    color: black;
+    margin-left: 18px;
+  }
+}
+
+.delete-thread-wrapper {
+  form button {
+    color: black;
+    margin-left: 18px;
+  }
+}

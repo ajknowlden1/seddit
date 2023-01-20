@@ -1,0 +1,7 @@
+{% extends 'main/base.html' %} {% block content%}
+<h2 class="page-header" id="login-page__header">Sign Up</h2>
+<form class="form" method="post">
+  {%csrf_token%} {{form.as_p}}
+  <button class="form__button" type="submit">Sign up></button>
+</form>
+{% endblock %}
